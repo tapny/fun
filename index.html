@@ -8,9 +8,12 @@
 </head>
 <body>
 
-<p>Insert your unique vote link below from the TACL email.</p>
+<p>Insert your unique vote link below from the TACL email entitled "TACL's Summer Newsletter!".
+<button class="explain">Explain</button></p>
+<img class="instr" src="fun-instructions.png">
+<br>
 <input class="frame-src" value="http://tacl.us7.list-manage.com/track/click?u=d1d9b955f1a7c863bbdfae03a&id=158d6239d6&e=9e06608b0a" size="50"/>
-<button>vote</button>
+<button class="vote">vote</button>
 <div class="iframe"></div>
 <br>
 <br>
@@ -19,10 +22,16 @@ wait time (seconds)<input class="timeout" value="2" size="3"> <p>Increase this n
 <script>
 
 $(document).ready( function() {
+ $(".instr").hide();
  $(".frame-src").click( function() {
    $(this).select();
  });
- $("button").click( function() {
+
+ $(".explain").click( function() {
+    $(".instr").toggle();
+ });
+
+ $(".vote").click( function() {
     var self = $(this);
     var frame = document.createElement("iframe");
     frame.src = $(".frame-src").val();
